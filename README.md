@@ -23,7 +23,7 @@ $ g++ -g -std=c++20 ../main.cpp -o betterCD
 $ export PATH=$PATH:$(pwd)
 ```
 
-IMPORTANT - program requires you to set your XDG_CONFIG_HOME variable (suggested location is ~/.config).
+### IMPORTANT - program requires you to set your XDG_CONFIG_HOME variable (suggested location is ~/.config).
 If You don't know what You are doing, first of all, You are about to have a great time :), second of all, just copy these:
 ```
 $ mkdir ~/.config
@@ -55,4 +55,9 @@ As of today program has 3 flags:
 $ m -a <name> - creates a bookmark with given <name> in current directory 
 $ m -r <name> - removes a bookmark with the given <name>
 $ m -s - lists all the possibles bookmarks
+```
+
+Additionaly program allows you to jump to previous locations using following syntax:
+```
+$ m . - jumps to previous location
 ```
