@@ -9,7 +9,7 @@ BookMarker is a sipmple CL application for UNIX systems to mark often used locat
 	
 ## Technologies
 Project is created with:
-* C/C++ version: Doesn't matter 
+* C/C++ version: Doesn't matter (I think... On 17 works just fine)
 * bash 
 	
 ## Setup
@@ -22,7 +22,7 @@ $ mkdir build && cd build
 $ g++ -g -std=c++20 ../main.cpp -o betterCD
 $ export PATH=$PATH:$(pwd)
 ```
-
+(if it physically pains You to add garbage directories to Your PATH, just create symlink to executable or move it to directory within existing PATH, or sth)
 ### IMPORTANT - program requires you to set your XDG_CONFIG_HOME variable (suggested location is ~/.config).
 If You don't know what You are doing, first of all, You are about to have a great time :), second of all, just copy these:
 ```
@@ -41,7 +41,9 @@ $ echo 'function m {
        return
     fi
    echo "$input"' >> ~/.bash_profile
+$ source ~/.bash_profile
 ```
+If You would rather call Your program something else than 'm' (m comes from vim marks) just rename function above
 
 ## Usage
 To run program simply type 
