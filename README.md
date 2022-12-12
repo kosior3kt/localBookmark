@@ -13,7 +13,7 @@ Project is created with:
 * bash 
 	
 ## Setup
-To run project clone it and follow instructions described in wiki.
+To run project clone it and follow instructions described in wiki (when I finally make it... for now README should be eneouch anyways)
 
 ```
 $ git clone git@github.com:kosior3kt/localBookmark.git
