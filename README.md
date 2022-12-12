@@ -28,7 +28,7 @@ If You don't know what You are doing, first of all, You are about to have a grea
 ```
 $ mkdir ~/.config
 $ touch ~/.bash_profile
-$ echo "export XDG_CONFIG_HOME='~/.config' >> ~/.bash_profile"
+$ echo "export XDG_CONFIG_HOME='~/.config'" >> ~/.bash_profile
 $ echo 'function m {
    input=$(betterCD "$@")
    local t1=$?
@@ -40,7 +40,7 @@ $ echo 'function m {
        popd
        return
     fi
-   echo "$input"'
+   echo "$input"' >> ~/.bash_profile
 ```
 
 ## Usage
