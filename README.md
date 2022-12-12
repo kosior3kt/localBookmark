@@ -2,6 +2,7 @@
 * [About](#about)
 * [Technologies](#technologies)
 * [Setup](#setup)
+* [Usage](#usage)
 
 ## About 
 BookMarker is a sipmple CL application for UNIX systems to mark often used location in file system and cd into them with custom shortcut.
@@ -40,4 +41,18 @@ $ echo 'function m {
        return
     fi
    echo "$input"'
+```
+
+## Usage
+To run program simply type 
+```
+$ m <name> - cd into the path corealated with <name>
+```
+At the beggining there are no flags (obvoiusly)
+To add some use -a flag.
+As of today program has 3 flags:
+```
+$ m -a <name> - creates a bookmark with given <name> in current directory 
+$ m -r <name> - removes a bookmark with the given <name>
+$ m -s - lists all the possibles bookmarks
 ```
