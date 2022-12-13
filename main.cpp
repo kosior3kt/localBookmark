@@ -15,7 +15,7 @@ struct bookmark
 
 std::vector<bookmark> contentsOfFile;
 char cwd[_PATH_MAX];
-std::vector<const char*> reservedWords = {".", "-s", "-a", "-r", "-h"};
+std::vector<const char *> reservedWords = { ".", "-s", "-a", "-r", "-h", "!", "-rtemp" };
 
 void split(std::string str, std::string &a, std::string &b)
 {
@@ -37,6 +37,18 @@ void split(std::string str, std::string &a, std::string &b)
       b += str[i];
       ++i;
    }
+}
+
+bool isNumeric(std::string str)
+{
+   for(int i = 0; i < str.size(); ++i)
+   {
+      if(str[i] < '0' || str[i] > '9')
+      {
+         return false;
+      }
+   }
+   return true;
 }
 
 void readBookmark(std::string path)
@@ -86,7 +98,9 @@ int main(int argc, char **argv)
 
    if(argc == 1)
    {
-      std::cout << "Usage: " << argv[0] << " [bookmark name]" << std::endl;
+      // std::cout << "Usage: " << argv[0] << " [bookmark name]" << std::endl;
+      std::cout << "Usage: "
+                << " m [options] <bookmark name>" << std::endl;
       return 0;
    }
    else if(argc == 2)
@@ -100,6 +114,38 @@ int main(int argc, char **argv)
                       << contentsOfFile[i].path.c_str() << std::endl;
          }
          return 0;
+      }
+      else if((std::string)argv[1] == "-rtemp")
+      {
+         for(int i = 0; i < contentsOfFile.size(); i++)
+         {
+            if(isNumeric(contentsOfFile[i].name))
+            {
+               contentsOfFile.erase(contentsOfFile.begin() + i);
+               --i;
+            }
+         }
+         saveBookmark(config_path);
+         return 0;
+      }
+      else if((std::string)argv[1] == "!")
+      {
+         if(get_current_dir())
+         {
+            for(int i = 0; i < contentsOfFile.size(); i++)
+            {
+               if(cwd == contentsOfFile[i].path)
+               {
+                  std::cout << "name of bookmark(s) for current path: "<<contentsOfFile[i].name.c_str() << std::endl;
+               }
+            }
+            return 0;
+         }
+         else
+         {
+            std::cout << "Error while getting current directory" << std::endl;
+            return 0;
+         }
       }
       for(int i = 0; i < contentsOfFile.size(); i++)
       {
