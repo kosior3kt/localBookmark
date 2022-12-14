@@ -63,3 +63,10 @@ Additionaly program allows you to jump to previous locations using following syn
 ```
 $ m . - jumps to previous location
 ```
+
+### showCase
+
+
+https://user-images.githubusercontent.com/83113058/207537978-69feb17e-8092-411e-b140-9842d52d7f50.mov
+
+
